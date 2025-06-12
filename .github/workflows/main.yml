@@ -2,7 +2,7 @@ name: Keep Alive Multiple Sites
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # Every 5 minutes
+    - cron: '*/6 * * * *'  # Every 6 minutes
   workflow_dispatch:       # Optional manual trigger
 
 jobs:
@@ -15,7 +15,7 @@ jobs:
           declare -a urls=(
             "https://tradingbot-382l.onrender.com" 
             "https://another-site.onrender.com" 
-            "https://third-site.onrender.com" 
+            "https://third-sysrysy4ender.com" 
           )
 
           # Number of retries per URL
