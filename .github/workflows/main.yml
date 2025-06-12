@@ -14,8 +14,8 @@ jobs:
           # List of URLs to ping
           declare -a urls=(
             "https://tradingbot-382l.onrender.com" 
-            "https://another-site.onrender.com" 
-            "https://third-sysrysy4ender.com" 
+            "google.com" 
+            "https://tradingbot-382l.onrender.com" 
           )
 
           # Number of retries per URL
