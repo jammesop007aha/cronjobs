@@ -1,13 +1,33 @@
-name: Keep Render Alive
+name: Keep Render Alive - Multi Site 3x Each
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # Runs every 15 minutes
+    - cron: '*/5 * * * *'  # Every 5 minutes
 
 jobs:
   keepalive:
     runs-on: ubuntu-latest
     steps:
-      - name: Ping Render App
+      - name: Ping Sites (3 times each)
         run: |
-          curl -s https://tradingbot-382l.onrender.com 
+          # List of URLs to ping
+          declare -a urls=(
+            "https://tradingbot-382l.onrender.com" 
+            "https://another-site.onrender.com" 
+            "https://third-site.example.com" 
+          )
+
+          # Number of times to ping each
+          retries=3
+
+          # Delay between retries (seconds)
+          delay=2
+
+          # Loop through each URL
+          for url in "${urls[@]}"; do
+            echo "Pinging $url..."
+            for i in $(seq 1 $retries); do
+              echo "Attempt $i for $url"
+              curl -s --max-time 5 "$url" >/dev/null && break || sleep $delay
+            done
+          done
