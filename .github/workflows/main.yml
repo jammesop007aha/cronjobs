@@ -15,7 +15,7 @@ jobs:
           declare -a urls=(
             "https://tradingbot-382l.onrender.com" 
             "google.com" 
-            "https://tradingbot-382l.onrender.com" 
+            "https://tradingbot-link.onrender.com" 
           )
 
           # Number of retries per URL
